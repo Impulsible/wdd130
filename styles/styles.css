@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #e9f2f5;
 }
 
 /* Navigation */
@@ -14,7 +14,7 @@ nav {
 }
 
 nav a {
-    color: white;
+    color: rgb(67, 27, 211);
     text-decoration: none;
     padding: 10px 15px;
     display: inline-block;
