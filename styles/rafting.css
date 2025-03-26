@@ -1,0 +1,184 @@
+/* Color Variables */
+:root {
+    --primary: #1E6091; /* Deep Water Blue */
+    --secondary: #76C893; /* Fresh Green */
+    --accent1: #F4A261; /* Earthy Orange */
+    --accent2: #8D270D; /* Deep Adventure Red */
+    --background-gradient: linear-gradient(to right, #0077b6, #76C893); /* Adventure Gradient */
+}
+
+/* Global Styles */
+body {
+    font-family: 'Lora', serif;
+    background: var(--background-gradient);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--primary);
+    padding: 20px;
+}
+
+header img {
+    height: 50px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--accent1);
+}
+
+/* Hero Section */
+.hero {
+    position: var(--background-gradient);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), 
+                url('../images/hero-rafting.jpg') center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+}
+
+/* Hero Heading */
+.hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    margin-bottom: 10px;
+}
+
+/* Hero Paragraph */
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    max-width: 600px;
+}
+
+/* CTA Button */
+.cta-button {
+    background: #ff6600;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.cta-button:hover {
+    background: #ff4500;
+    transform: scale(1.1);
+}
+
+
+.hero img {
+    width: 100%;
+    display: block;
+    filter: brightness(90%);
+}
+
+.hero h1 {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 2.5rem;
+}
+
+/* Adventure Sections */
+section {
+    margin: 20px;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.about {
+    background: rgba(4, 51, 37, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+.trips {
+    background: rgba(0, 119, 182, 0.8);
+    color: white;
+}
+
+.contact {
+    background: var(--accent1);
+    color: #fff;
+}
+
+/* Adventure Images */
+section img {
+    width: 200px;
+    margin: 10px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+section img:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer */
+footer {
+    background: var(--primary);
+    color: white;
+    padding: 15px;
+    font-size: 1.1rem;
+}
+
+footer img {
+    width: 30px;
+    margin: 5px;
+}
+
+/* Social Media Links */
+footer a {
+    text-decoration: none;
+    color: var(--accent1);
+    transition: color 0.3s ease-in-out;
+    footer a:hover {
+        filter: brightness(1.5); /* Makes the color 50% brighter */
+    }
+    
+}
+
+footer a:hover {
+    color: var(--secondary);
+}
+
+/* Homepage Image */
+.homepage-image {
+    max-width: 200px;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    border: 3px solid white;
+}
