@@ -337,3 +337,79 @@ footer img:hover {
         max-width: 80%;
     }
 }
+/* Main Layout */
+.rafting-experience {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 85%;
+    margin: 40px auto;
+    gap: 40px;
+}
+
+/* Left Side: Text */
+.text-content {
+    flex: 1;
+    text-align: justify;
+    max-width: 50%;
+    font-size: 0.9rem; /* Reduced font size for better proportion */
+    line-height: 1.5;
+}
+
+/* Headings */
+.text-content h2 {
+    font-size: 1.3rem; /* Smaller heading size to balance with the larger image */
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* "Why Join Us?" Header Styling */
+.why-join {
+    margin-top: 20px;
+    color: #007BFF; /* Highlighted color for emphasis */
+}
+
+/* Right Side: Larger Image */
+.home-img {
+    max-width: 48%; /* Increased size for better balance */
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .rafting-experience {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .text-content {
+        max-width: 100%;
+        text-align: center;
+        font-size: 1rem; /* Slightly larger font for mobile readability */
+    }
+
+    .home-img {
+        max-width: 80%;
+        margin-top: 15px;
+    }
+}
+/* Right Side: Larger Image */
+.home-img {
+    max-width: 50%; /* Keep width balanced */
+    height: 400px; /* Increased height */
+    object-fit: cover; /* Ensures the image fills the space without distortion */
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .home-img {
+        max-width: 80%;
+        height: auto; /* Adjusts naturally on smaller screens */
+        margin-top: 15px;
+    }
+}
+
