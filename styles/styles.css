@@ -1,0 +1,77 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Navigation */
+nav {
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: inline-block;
+}
+
+/* Main Section */
+main {
+    width: 80%;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: wheat;
+}
+
+main img {
+    width: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Heading 1 */
+h1 {
+    font-size: 2em;
+    text-align: center;
+    color: #333;
+    margin-top: 20px;
+}
+
+/* Aside Section */
+aside {
+    width: 80%;
+    max-width: 800px;
+    margin: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #e0e0e0;
+    color: #333;
+    text-align: center;
+}
+
+aside img {
+    width: 200px;
+    height: auto;
+}
+
+/* Paragraph */
+p {
+    padding: 0;
+    text-align: justify;
+}
+
+/* Footer */
+footer {
+    margin-top: 20px;
+    border-top: 2px solid #000;
+    text-align: center;
+    padding: 10px;
+    background-color: #ddd;
+}
