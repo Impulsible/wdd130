@@ -1,0 +1,1048 @@
+/* Color Variables */
+:root {
+    --primary: #1E6091; /* Deep Water Blue */
+    --secondary: #76C893; /* Fresh Green */
+    --accent1: #F4A261; /* Earthy Orange */
+    --accent2: #8D270D; /* Deep Adventure Red */
+    --background-gradient: linear-gradient(to right, #0077b6, #76C893); /* Adventure Gradient */
+}
+
+/* Global Styles */
+body {
+    font-family: 'Merriweather', serif;
+    background: var(--background-gradient);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Header */
+header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    background: var(--primary);
+    padding: 20px;
+    gap: 20px;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+header img {
+    height: 50px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: white;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--accent1);
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), 
+                url('../images/hero-rafting.jpg') center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 80px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+}
+
+/* Hero Heading */
+.hero h1 {
+    font-size: 2rem; /* Reduced for balance */
+    font-weight: bold;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    margin-bottom: 8px;
+}
+
+/* Hero Paragraph */
+.hero p {
+    font-size: 1rem; /* Reduced to align with image size */
+    margin-bottom: 15px;
+    max-width: 550px;
+}
+
+/* Content Section */
+.content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    max-width: 85%;
+    margin: 40px auto;
+    gap: 35px; /* More spacing for balance */
+    position: relative;
+}
+
+/* Left-Side Text */
+.text {
+    flex: 1;
+    text-align: justify;
+    font-size: 0.85rem; /* Reduced font size for alignment */
+    line-height: 1.5;
+    padding-right: 30px; /* More spacing from the image */
+}
+
+/* Right-Side Image (Larger for Better Balance) */
+.home-img {
+    max-width: 60%; /* Increased size to match text length */
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    top: 50px; /* Slight adjustment */
+    right: 0;
+    object-fit: cover;
+    display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .text {
+        text-align: center;
+        padding-right: 0;
+        font-size: 0.9rem; /* Slightly larger for readability on mobile */
+    }
+
+    .home-img {
+        max-width: 75%; /* Adjust for smaller screens */
+        position: relative;
+        top: auto;
+        right: auto;
+        margin: 15px auto;
+    }
+}
+
+
+/* CTA Button */
+.cta-button {
+    background: var(--accent1);
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.cta-button:hover {
+    background: #ff4500;
+    transform: scale(1.1);
+}
+
+/* About & Trips Sections */
+.about, .trips {
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 20px;
+}
+
+.about {
+    background: rgba(4, 51, 37, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+.about .image-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.about img {
+    width: calc(100% / 5 - 20px);
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.about img:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Adventures Section */
+.adventures {
+    padding: 30px;
+    background: rgba(0, 119, 182, 0.8);
+    color: white;
+    text-align: center;
+}
+
+.adventure-gallery {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.adventure-gallery figure {
+    margin: 0;
+    text-align: center;
+}
+
+.adventure-gallery img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.adventure-gallery img:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.adventure-gallery figcaption {
+    margin-top: 8px;
+    font-weight: bold;
+}
+
+
+/* Footer */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--primary);
+    color: white;
+    padding: 15px;
+    font-size: 1.1rem;
+}
+
+footer .social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+footer img {
+    width: 30px;
+    transition: transform 0.3s;
+}
+
+footer img:hover {
+    transform: scale(1.2);
+}
+/* History Section */
+.history {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 50px;
+    background: rgba(7, 53, 39, 0.8);
+    color: white;
+    flex-wrap: nowrap; /* Ensures items stay in one row */
+}
+
+/* Left & Right Text Containers */
+.history-content {
+    flex: 1;
+    max-width: 30%; /* Controls width for balance */
+    font-size: 1rem; /* Ensures readability */
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* Central Image */
+.history-img {
+    max-width: 350px; /* Large and visible */
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0px 5px 12px rgba(221, 221, 221, 0.5);
+}
+
+/* Headings */
+.history-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .history {
+        flex-direction: row;
+        flex-wrap: wrap; /* Wraps for smaller screens */
+        text-align: center;
+    }
+    .history-content {
+        max-width: 40%;
+        text-align: justify;
+    }
+    .history-img {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .history {
+        flex-direction: column;
+        text-align: center;
+    }
+    .history-content {
+        max-width: 100%;
+        text-align: center;
+    }
+    .history-img {
+        max-width: 80%;
+    }
+}
+/* Main Layout */
+.rafting-experience {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 85%;
+    margin: 40px auto;
+    gap: 40px;
+}
+
+/* Left Side: Text */
+.text-content {
+    flex: 1;
+    text-align: justify;
+    max-width: 50%;
+    font-size: 0.9rem; /* Reduced font size for better proportion */
+    line-height: 1.5;
+}
+
+/* Headings */
+.text-content h2 {
+    font-size: 1.3rem; /* Smaller heading size to balance with the larger image */
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* "Why Join Us?" Header Styling */
+.why-join {
+    margin-top: 20px;
+    color: #007BFF; /* Highlighted color for emphasis */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .rafting-experience {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .text-content {
+        max-width: 100%;
+        text-align: center;
+        font-size: 1rem; /* Slightly larger font for mobile readability */
+    }
+
+}
+/* Right Side: Larger Image */
+.home-img {
+    max-width: 50%; /* Keep width balanced */
+    height: 400px; /* Increased height */
+    object-fit: cover; /* Ensures the image fills the space without distortion */
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .home-img {
+        max-width: 80%;
+        height: auto; /* Adjusts naturally on smaller screens */
+        margin-top: 15px;
+    }
+}
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1, h2 {
+    font-family: 'Lora', serif;
+    color: #f7efef;
+}
+
+/* Header Styling */
+header {
+    background-color: #003366; /* Dark Blue */
+    color: white;
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+    height: 50px;
+    margin-left: 20px;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+nav a:hover {
+    color: #4CAF50;
+}
+
+/* Contact Info Section */
+.contact-info {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info p {
+    margin: 10px 0;
+}
+
+/* Employee Profiles Section */
+.employee-profiles {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.profile {
+    text-align: center;
+    width: 30%;
+}
+
+.profile img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    max-width: 150px;
+}
+
+.profile p {
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+/* Contact Form */
+.contact-form {
+    background-color: #ffffff;
+    padding: 25px;
+    margin: 20px auto; /* Center form on the page */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px; /* Limit the width */
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 14px; /* Smaller font size for labels */
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 12px; /* Increased padding for better spacing */
+    font-size: 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 100%;
+    background-color: #f9f9f9;
+    box-sizing: border-box; /* To include padding within the width */
+}
+
+.form-group input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Improved textarea styling */
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px; /* Set a minimum height for the textarea */
+    height: auto; /* Allow it to expand based on content */
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+.form-group textarea:focus {
+    border-color: #4CAF50; /* Change border color on focus */
+    outline: none;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Submit Button */
+.submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+/* Google Map Styling */
+.map iframe {
+    width: 100%;
+    height: 450px;
+    border: none;
+}
+
+/* Footer Styling */
+/* Footer */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--primary);
+    color: white;
+    padding: 15px;
+    font-size: 1.1rem;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    color: #4CAF50;
+}
+/* Common Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header Styling */
+header {
+    background-color: #003366; /* Dark Blue */
+    color: white;
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+    height: 50px;
+    margin-left: 20px;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+nav a {
+    font-size: 20px; /* Adjust the value to your preferred size */
+}    
+
+nav a:hover {
+    color: #4CAF50;
+}
+
+/* Contact Section */
+#contact {
+    padding: 40px 0;
+    background-color: #003366;
+    color: white;
+    text-align: center;
+}
+
+#contact h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+#contact h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+/* Contact Form Styling */
+.contact-form {
+    background-color: #ffffff;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    width: 100%;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+.form-group button {
+    background-color: #003366;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.form-group button:hover {
+    background-color: #4CAF50;
+}
+
+/* Separate First and Last Name Fields (Side by Side) */
+.form-name-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.form-name-group .form-group {
+    flex: 1;
+}
+
+/* Radio Buttons Styling */
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.radio-group label {
+    font-weight: 600;
+}
+
+/* Additional Contact Info */
+.contact-info {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #003366;
+}
+
+.contact-info p {
+    font-weight: 600;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #003366;
+    color: white;
+    padding: 2px 0px;
+    text-align: justify;
+    margin-top: 1%;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    color: #4CAF50;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .contact-form {
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-form {
+        max-width: 90%;
+    }
+
+    .form-name-group {
+        flex-direction: column;
+    }
+
+    .form-name-group .form-group {
+        margin-bottom: 15px;
+    }
+}
+
+/* Scoped to Home Page */
+.home-page * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .home-page body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9fafc;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  .home-page header {
+    background-color: #033358;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1rem;
+    gap: 1rem;
+  }
+  
+  .home-page .logo {
+    height: 60px;
+    border-radius: 5px;
+  }
+  
+  .home-page nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-weight: 600;
+  }
+  
+  .home-page nav a:hover {
+    color: #ffbe0b;
+  }
+  
+  .home-page .hero {
+    background-image: url('../images/hero_transparency_102.jpeg');
+    background-size: cover;
+    background-position: center;
+    color: rgb(238, 234, 234);
+    text-align: center;
+    padding: 6rem 2rem;
+    position: relative;
+  }
+  
+  .home-page .hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .home-page .hero h1,
+  .home-page .hero p,
+  .home-page .hero .cta-button {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .home-page .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-family: 'Lora', serif;
+  }
+  
+  .home-page .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .home-page .cta-button {
+    padding: 0.8rem 1.5rem;
+    background-color: #ffbe0b;
+    color: #02273b;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .home-page .cta-button:hover {
+    background-color: #faa307;
+  }
+  
+  .home-page .newsletter {
+    background-color: #1f5364;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .home-page .newsletter h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .home-page .newsletter input[type="email"] {
+    padding: 0.5rem;
+    width: 250px;
+    max-width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+  }
+  
+  .home-page .newsletter button {
+    padding: 0.5rem 1rem;
+    background-color: #003049;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .home-page .newsletter button:hover {
+    background-color: #0077b6;
+  }
+  
+  .home-page .grid-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 3rem 2rem;
+    background-color: #ffffff;
+  }
+  
+  .home-page .grid-item {
+    background-color: #e0f2f1;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    text-align: center;
+  }
+  
+  .home-page .grid-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+  }
+  
+  .home-page .grid-item h3 {
+    margin-bottom: 1rem;
+    font-family: 'Lora', serif;
+    color: #003049;
+  }
+  
+  .home-page footer {
+    background-color: #003049;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+  
+  @media (max-width: 768px) {
+    .home-page header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .home-page nav {
+      margin-top: 0.5rem;
+    }
+  
+    .home-page .hero h1 {
+      font-size: 2rem;
+    }
+  
+    .home-page .grid-section {
+      padding: 2rem 1rem;
+    }
+  }
+  /* Add this inside styles/rafting.css */
+
+.trips {
+    text-align: center;
+    padding: 2rem;
+    background-color: #b0cde6;
+}
+
+.trips h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.trips p {
+    font-size: 1.2rem;
+    color: #444;
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #083758;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.cta-button:hover {
+    background-color: #063455;
+}
+
+/* Grid Section for Trip Cards */
+.grid-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    background-color: #ffffff;
+}
+
+.grid-item {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.grid-item h3 {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+
+.grid-item p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.trips-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1a1a2e;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 2rem;
+  }
+  
+  .trips-table th,
+  .trips-table td {
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid #444;
+  }
+  
+  .trips-table thead {
+    background-color: #0f3460;
+  }
+  
+  .trips-table tbody tr:nth-child(even) {
+    background-color: #16213e;
+  }
+  
+  .trips-table tbody tr:hover {
+    background-color: #0f3460;
+  }
+  
+  .table-container {
+    overflow-x: auto;
+    margin: 1rem 0;
+  }
+  
+  .trip-image {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
