@@ -3,27 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rapids Rafting Adventures | White-Water Fun for Everyone</title>
-  <meta name="description" content="Join Rapids Rafting Adventures for unforgettable white-water trips. Book your rafting adventure today and experience the thrill!">
+  <title>Rapids Rafting Adventures | Blue-Water Thrill</title>
+  <meta name="description" content="Ride the rapids with Rapids Rafting Adventures. Safe, exciting, unforgettable rafting trips for everyone!">
+  <meta name="keywords" content="rafting, white-water rafting, adventure, outdoors">
+  <meta name="author" content="Rapids Rafting Adventures Team">
+  <meta property="og:title" content="Rapids Rafting Adventures">
+  <meta property="og:description" content="White-water excitement and unforgettable memories!">
+  <meta property="og:image" content="images/z-therapidssplash.jpg">
+  <meta property="og:url" content="https://impulsible.github.io/wdd130/wwr/index.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="styles/rafting.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+  <script src="scripts/nav.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
-  <body class="home-page">  
+
+<body>
   <header>
     <img src="images/z-therapidssplash.jpg" alt="Rapids Rafting Logo" class="logo">
-    <nav>
-      <a href="index.html">Home</a>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+    <nav id="navMenu">
+      <a href="index.html" class="active">Home</a>
       <a href="about.html">About Us</a>
       <a href="trips.html">Trips</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <section class="hero">
-    <h1>Experience the Thrill of Rapids!</h1>
-    <p>Join us for an unforgettable white-water adventure.</p>
-    <a href="trips.html" class="cta-button">Explore Trips</a>
-  </section>
+<section class="hero hero-home"> <!-- index.html -->
+  <div class="overlay">
+    <h1>Conquer the Rapids</h1>
+    <p>Experience safe, thrilling adventures on pristine blue rivers</p>
+    <a href="trips.html" class="cta-button">Book a Trip</a>
+  </div>
+</section>
+
+
 
   <section class="newsletter">
     <h2>Subscribe to Our Newsletter</h2>
@@ -34,36 +51,31 @@
   </section>
 
   <section class="grid-section">
-    <!-- Existing Grid Items -->
     <div class="grid-item">
       <h3>Adventure Awaits</h3>
-     <img src="images/Arenal-River-Rafting-Tour-1.webp" alt="Rafting Adventure">
-      <p>Explore the thrills and excitement of white water rafting. Join us for an unforgettable experience on the river.</p>
+      <img src="images/Arenal-River-Rafting-Tour-1.webp" alt="Rafting Adventure">
+      <p>Explore the thrills of white water rafting with professional guides and equipment.</p>
     </div>
-  
     <div class="grid-item">
       <h3>Our Offerings</h3>
-      <img src="images/Rafting-Savegre-River-01_optimized_100.jpg" alt="Rafting Equipment">
-      <p>We offer a variety of rafting packages, including family-friendly trips, expert-led adventures, and more!</p>
+      <img src="images/Rafting-Savegre-River-01_optimized_100.jpg" alt="Rafting Gear">
+      <p>Choose from beginner trips, family routes, and expert-level rafting tours.</p>
     </div>
-  
-    <!-- Additional New Grid Items for Purpose and Offerings -->
     <div class="grid-item">
-      <h3>White Water Rafting Purpose</h3>
-      <img src="images/poplar-foliage-Dead-river_optimized_100.webp" alt="Purpose of White Water Rafting">
-      <p>Our mission is to provide safe, thrilling experiences on the river while promoting environmental awareness and conservation.</p>
+      <h3>Why Raft?</h3>
+      <img src="images/poplar-foliage-Dead-river_optimized_100.webp" alt="Nature Conservation">
+      <p>Connect with nature, build teamwork, and enjoy the adrenaline of the river.</p>
     </div>
-  
     <div class="grid-item">
-      <h3>What We Offer</h3>
-      <img src="images/rafting22_600_1_100.jpg" alt="Rafting Gear and Experience">
-      <p>From guided tours to equipment rentals, we have everything you need for a fantastic rafting adventure. Join us now!</p>
+      <h3>We’ve Got You Covered</h3>
+      <img src="images/rafting22_600_1_100.jpg" alt="Supportive Rafting Team">
+      <p>We provide gear, safety training, and certified instructors on every trip.</p>
     </div>
   </section>
 
   <footer>
     <p>&copy; 2025 Rapids Rafting Adventures. All Rights Reserved.</p>
+    <p id="lastModified"></p>
   </footer>
-
 </body>
 </html>

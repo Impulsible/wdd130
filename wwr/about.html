@@ -1,103 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="About our white water rafting company">
-    <meta name="author" content="Osuagwu Prince Henry">
-    <title>About Us - White Water Rafting</title>
-    <link rel="stylesheet" href="styles/rafting.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Rapids Rafting Adventures</title>
+  <meta name="description" content="Learn about our rafting company, our mission, and what makes us the best choice for white water rafting.">
+  <meta name="author" content="Osuagwu Prince Henry">
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="styles/rafting.css">
+  <script src="scripts/nav.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <header>
-        <img src="images/z-therapidssplash.jpg" alt="Rafting Company Logo">
-        <h1>White Water Rafting</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="trips.html">Trips</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-             
-        <section class="hero">
-            <img src="images/hero_transparency_102.jpeg" alt="Rafting Adventure">
-            <h2>White Water Rafting Adventures</h2>  <!-- ✅ Changed from h1 to h2 -->
-            <article class="rafting-experience">
-                <div class="text-content">
-                    <h2>Experience the Thrill of White Water Rafting</h2>
-                    <p>Embark on an exhilarating journey through rushing rapids and breathtaking landscapes. Whether you're a beginner or a seasoned adventurer, our expert guides ensure a safe yet thrilling ride.</p>
-                    <p>Feel the adrenaline as you navigate the waves, work as a team, and embrace the raw power of nature. Every rapid tells a story, and every wave brings excitement. Join us for an unforgettable experience on the wild waters!</p>
-            
-                    <h2 class="why-join">Why Join Us?</h2>
-                    <p>We offer the ultimate rafting experience with top safety standards, experienced guides, and breathtaking river routes. Whether it's your first time or you're an experienced rafter, our adventures are designed to be both thrilling and safe.</p>
-                </div>
-                <img src="images/home_optimized_100.jpg" alt="White Water Rafting" class="home-img">
-            </article>
-            
-        </section>  <!-- ✅ Correct closing tag here -->
+  <header>
+    <img src="images/z-therapidssplash.jpg" alt="Rafting Company Logo" class="logo">
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+    <nav id="navMenu">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About Us</a>
+      <a href="trips.html">Trips</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-        <section class="history">
-            <div class="history-content">
-                <
-                <h2>Our Beginning</h2>
-                <p>Our journey started with a vision to bring adventure lovers closer to nature. We started as a small group of enthusiasts exploring wild rivers and sharing our passion for white water rafting.</p>
-            </div>
-        
-            <img src="images/history2_optimized_100.jpg" alt="Rafting History" class="history-img">  <!-- ✅ Image properly centered -->
-        
-            <div class="history-content">
-                <h2>Our Growth</h2>
-                <p>Over the years, we have grown into a trusted rafting company, welcoming thousands of adventurers who seek excitement, teamwork, and unforgettable experiences in the heart of nature.</p>
-            </div>
-        </section>  <!-- ✅ Correct closing tag for history section -->
-        
-        <section class="adventures">
-            <h2>Adventure Awaits You!</h2>
-            <div class="adventure-gallery">
-                <figure>
-                    <img src="images/raft1_100.jpg" alt="Los Dientes del Diablo">
-                    <figcaption>Los Dientes del Diablo</figcaption>
-                </figure>
-                <figure>
-                    <img src="images/raft2_100.jpg" alt="Big Mallard">
-                    <figcaption>Big Mallard</figcaption>
-                </figure>
-                <figure>
-                    <img src="images/rafting3_100.jpg" alt="Half Day Adventure">
-                    <figcaption>Half Day Adventure</figcaption>
-                </figure>
-                <figure>
-                    <img src="images/rafting42_600_100.jpg" alt="Grand Canyon Rapids">
-                    <figcaption>Grand Canyon Rapids</figcaption>
-                </figure>
-                <figure>
-                    <img src="images/happy.jpg" alt="Sunset River Tour">
-                    <figcaption>Sunset River Tour</figcaption>
-                </figure>
-            </div>
-        </section>  <!-- ✅ Correct closing tag, removed extra </section> -->
+  <main>
+    <!-- HERO -->
+  <section class="hero hero-about"> <!-- index.html -->
+  <div class="overlay">
+    <h1>Conquer the Rapids</h1>
+    <p>Experience safe, thrilling adventures on pristine blue rivers</p>
+    <a href="trips.html" class="cta-button">Book a Trip</a>
+  </div>
+</section>
 
-    </main>
-    <footer>
-        <p>&copy; 2025 White Water Rafting | Osuagwu Prince Henry</p>
-        <div class="social-links">
-            <a href="https://facebook.com" target="_blank">
-                <img src="images/facebook.avif" alt="Facebook" class="social-icon">
-            </a>
-            <a href="https://twitter.com" target="_blank">
-                <img src="images/twitter_logo.avif" alt="Twitter" class="social-icon">
-            </a>
-            <a href="https://instagram.com" target="_blank">
-                <img src="images/instagram_logo.jpg" alt="Instagram" class="social-icon">
-            </a>
-        </div>
-    </footer>
+
+    <!-- EXPERIENCE -->
+    <section class="rafting-experience">
+      <div class="text-content">
+        <h2>Experience the Thrill of White Water Rafting</h2>
+        <p>Embark on an exhilarating journey through rushing rapids and breathtaking landscapes. Whether you're a beginner or a seasoned adventurer, our expert guides ensure a safe yet thrilling ride.</p>
+        <p>Feel the adrenaline as you navigate the waves, work as a team, and embrace the raw power of nature. Every rapid tells a story, and every wave brings excitement. Join us for an unforgettable experience on the wild waters!</p>
+
+        <h2>Why Join Us?</h2>
+        <p>We offer the ultimate rafting experience with top safety standards, experienced guides, and breathtaking river routes. Whether it’s your first time or you’re a veteran, our trips are designed to thrill and delight.</p>
+      </div>
+      <img src="images/home_optimized_100.jpg" alt="White Water Rafting" class="home-img">
+    </section>
+
+    <!-- HISTORY -->
+    <section class="history">
+      <div class="history-content">
+        <h2>Our Beginning</h2>
+        <p>Our journey began with a group of friends and a passion for rivers. We turned our weekend trips into a full-time mission: sharing the wild beauty of water with the world.</p>
+      </div>
+      <img src="images/history2_optimized_100.jpg" alt="Rafting History" class="history-img">
+      <div class="history-content">
+        <h2>Our Growth</h2>
+        <p>From a small startup to a nationwide adventure provider, we’ve guided thousands of rafters safely down the most scenic and exciting waterways on the continent.</p>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="adventures">
+      <h2>Adventure Awaits You!</h2>
+      <div class="adventure-gallery">
+        <figure>
+          <img src="images/raft1_100.jpg" alt="Los Dientes del Diablo">
+          <figcaption>Los Dientes del Diablo</figcaption>
+        </figure>
+        <figure>
+          <img src="images/raft2_100.jpg" alt="Big Mallard">
+          <figcaption>Big Mallard</figcaption>
+        </figure>
+        <figure>
+          <img src="images/rafting3_100.jpg" alt="Half Day Adventure">
+          <figcaption>Half Day Adventure</figcaption>
+        </figure>
+        <figure>
+          <img src="images/rafting42_600_100.jpg" alt="Grand Canyon Rapids">
+          <figcaption>Grand Canyon Rapids</figcaption>
+        </figure>
+        <figure>
+          <img src="images/happy.jpg" alt="Sunset River Tour">
+          <figcaption>Sunset River Tour</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Rapids Rafting Adventures | Osuagwu Prince Henry</p>
+    <div class="social-links">
+      <a href="https://facebook.com" target="_blank"><img src="images/facebook.avif" alt="Facebook" class="social-icon" /></a>
+      <a href="https://twitter.com" target="_blank"><img src="images/twitter_logo.avif" alt="Twitter" class="social-icon" /></a>
+      <a href="https://instagram.com" target="_blank"><img src="images/instagram_logo.jpg" alt="Instagram" class="social-icon" /></a>
+    </div>
+    <p id="lastModified"></p>
+  </footer>
 </body>
 </html>
