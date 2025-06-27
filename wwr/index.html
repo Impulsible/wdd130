@@ -19,6 +19,7 @@
 </head>
 
 <body>
+  <div class="backdrop" id="backdrop"></div>
   <header>
     <img src="images/z-therapidssplash.jpg" alt="Rapids Rafting Logo" class="logo">
     <div class="hamburger" id="hamburger">
@@ -32,13 +33,19 @@
     </nav>
   </header>
 
-<section class="hero hero-home"> <!-- index.html -->
+<section class="hero hero-home">
+  <picture>
+    <source srcset="images/download.png" media="(max-width: 480px)">
+    <source srcset="images/download.png" media="(max-width: 768px)">
+  </picture>
+
   <div class="overlay">
     <h1>Conquer the Rapids</h1>
     <p>Experience safe, thrilling adventures on pristine blue rivers</p>
     <a href="trips.html" class="cta-button">Book a Trip</a>
   </div>
 </section>
+
 
 
 
