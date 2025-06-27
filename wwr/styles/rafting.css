@@ -943,100 +943,150 @@ footer p {
     font-size: 1.5rem;
   }
 }
-/* Base styles for hamburger button */
-.hamburger {
-  display: inline-block;
-  cursor: pointer;
-  z-index: 1001;
+/* Default nav style on large screens */
+nav {
+  display: flex;
+  gap: 1rem;
 }
+
+/* Hamburger style */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 1001; /* above backdrop */
+}
+
 .hamburger span {
-  display: block;
   width: 25px;
   height: 3px;
-  margin: 5px;
   background: #fff;
-  transition: all 0.3s ease;
+  border-radius: 2px;
 }
 
-/* Animate hamburger to X */
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* Nav hidden by default on mobile */
-nav#navMenu {
-  position: absolute;
-  top: 70px;
-  right: 0;
-  background: rgba(0, 0, 0, 0.95);
-  flex-direction: column;
-  padding: 1rem;
-  width: 220px;
-  opacity: 0;
-  transform: translateX(100%);
-  pointer-events: none;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-/* When active: slide in */
-nav#navMenu.active {
-  opacity: 1;
-  transform: translateX(0);
-  pointer-events: auto;
-}
-
-/* Ensure nav links stack vertically on mobile */
-nav#navMenu a {
-  color: #fff;
-  text-decoration: none;
-  padding: 0.5rem 0;
-  display: block;
-}
-
-/* Show inline nav + hide hamburger on larger screens */
-@media (min-width: 768px) {
-  .hamburger {
-    display: none;
-  }
-  nav#navMenu {
-    position: static;
-    transform: none;
-    opacity: 1;
-    pointer-events: auto;
-    background: transparent;
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-  }
-  nav#navMenu a {
-    color: inherit;
-    display: inline;
-  }
-}
 /* Backdrop style */
-.backdrop {
+.nav-backdrop {
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(4px);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
+  background: rgba(0, 0, 0, 0.5);
   z-index: 1000;
 }
 
-/* Active backdrop */
-.backdrop.active {
-  opacity: 1;
-  pointer-events: auto;
+/* Mobile styles */
+@media (max-width: 768px) {
+  nav {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #004e64;
+    flex-direction: column;
+    width: 200px;
+    display: none;
+    padding: 1rem;
+    border-radius: 0 0 0 8px;
+    z-index: 1001;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  .nav-backdrop.active {
+    display: block;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 0.5rem;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+  }
+
+  .logo {
+    max-width: 150px;
+    height: auto;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+  }
+
+  nav {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #004e64;
+    flex-direction: column;
+    width: 200px;
+    display: none;
+    padding: 1rem;
+    border-radius: 0 0 0 8px;
+    z-index: 1000;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  main, footer {
+    padding: 1rem 0.5rem;
+  }
+
+  .grid-section, .employee-profiles {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .form-name-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  input, textarea, button {
+    width: 100%;
+  }
+
+  iframe {
+    width: 100%;
+    height: auto;
+  }
+
+  .cta-button, .submit-btn {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+
+  aside {
+    margin-top: 1rem;
+    text-align: center;
+  }
 }
 
