@@ -24,16 +24,18 @@ function scrollGallery(direction) {
   const scrollAmount = 300; // Adjust as needed
   gallery.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
 }
-const backdrop = document.getElementById('backdrop');
+document.addEventListener('DOMContentLoaded', function() {
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('navMenu');
+  const navBackdrop = document.getElementById('navBackdrop');
 
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('active');
-  navMenu.classList.toggle('active');
-  backdrop.classList.toggle('active');
-});
+  hamburger.addEventListener('click', function() {
+    navMenu.classList.toggle('active');
+    navBackdrop.classList.toggle('active');
+  });
 
-backdrop.addEventListener('click', () => {
-  hamburger.classList.remove('active');
-  navMenu.classList.remove('active');
-  backdrop.classList.remove('active');
+  navBackdrop.addEventListener('click', function() {
+    navMenu.classList.remove('active');
+    navBackdrop.classList.remove('active');
+  });
 });
