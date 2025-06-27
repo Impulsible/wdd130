@@ -896,3 +896,147 @@ footer p {
   text-align: right;
 }
 
+.hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero picture, 
+.hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.hero .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+}
+
+@media (min-width: 768px) {
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .hero p {
+    font-size: 1.5rem;
+  }
+}
+/* Base styles for hamburger button */
+.hamburger {
+  display: inline-block;
+  cursor: pointer;
+  z-index: 1001;
+}
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+/* Animate hamburger to X */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Nav hidden by default on mobile */
+nav#navMenu {
+  position: absolute;
+  top: 70px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.95);
+  flex-direction: column;
+  padding: 1rem;
+  width: 220px;
+  opacity: 0;
+  transform: translateX(100%);
+  pointer-events: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* When active: slide in */
+nav#navMenu.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+/* Ensure nav links stack vertically on mobile */
+nav#navMenu a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  display: block;
+}
+
+/* Show inline nav + hide hamburger on larger screens */
+@media (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
+  nav#navMenu {
+    position: static;
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+    background: transparent;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+  nav#navMenu a {
+    color: inherit;
+    display: inline;
+  }
+}
+/* Backdrop style */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+/* Active backdrop */
+.backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
