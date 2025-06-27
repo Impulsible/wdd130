@@ -24,3 +24,16 @@ function scrollGallery(direction) {
   const scrollAmount = 300; // Adjust as needed
   gallery.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
 }
+const backdrop = document.getElementById('backdrop');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navMenu.classList.toggle('active');
+  backdrop.classList.toggle('active');
+});
+
+backdrop.addEventListener('click', () => {
+  hamburger.classList.remove('active');
+  navMenu.classList.remove('active');
+  backdrop.classList.remove('active');
+});
