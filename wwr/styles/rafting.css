@@ -1284,14 +1284,15 @@ html, body {
   /* Header - Align Logo Left, Hamburger Right */
   header {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    padding: 1rem 2rem;
     text-align: center;
-    padding: 1rem;
   }
 
   .logo {
     height: 50px;
+    margin-left: 0; /* Ensures the logo stays to the left */
   }
 
   .hamburger {
@@ -1308,7 +1309,7 @@ html, body {
     background-color: white;
   }
 
-  /* Navigation (Mobile) */
+  /* Navigation Menu (Mobile) */
   nav {
     display: none;
     flex-direction: column;
@@ -1335,7 +1336,7 @@ html, body {
     color: #ffa600;
   }
 
-  /* Hero Section - Mobile Adjustments */
+  /* Hero Section (Mobile Adjustments) */
   .hero-trips {
     position: relative;
     background: url('../images/rafting27_1024.jpg') center/cover no-repeat;
@@ -1377,7 +1378,7 @@ html, body {
     color: #ffffff;
   }
 
-  /* Grid Section - Mobile Adjustments */
+  /* Grid Section (Mobile Adjustments) */
   .grid-section {
     display: grid;
     grid-template-columns: 1fr;
@@ -1412,7 +1413,7 @@ html, body {
     color: #555;
   }
 
-  /* Table Section */
+  /* Table Section (Mobile Adjustments) */
   .trips-table {
     width: 100%;
     border-collapse: collapse;
@@ -1439,7 +1440,7 @@ html, body {
     background-color: #f9f9f9;
   }
 
-  /* Newsletter Section */
+  /* Newsletter Section (Mobile Adjustments) */
   .exclusive-updates {
     background: #fff;
     padding: 2rem;
@@ -1493,7 +1494,7 @@ html, body {
     background: #007a7a;
   }
 
-  /* Footer Styling */
+  /* Footer Styling (Mobile Adjustments) */
   footer {
     background-color: #003f5c;
     color: white;
