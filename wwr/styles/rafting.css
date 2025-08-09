@@ -1270,58 +1270,55 @@ footer {
   padding: 1rem;
 }
 
-/* Prevent horizontal scrolling on mobile */
-html, body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
-}
-
-/* Mobile Styles (Only under 768px) */
+/* ===== Mobile-only styles (<=768px) ===== */
 @media (max-width: 768px) {
+  /* Safety: prevent sideways scroll */
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
 
-  /* Header - Align Logo Left, Hamburger Right */
+  /* Header: logo left, hamburger right */
   header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    text-align: center;
+    padding: 1rem 1.25rem;
+    background: #004e64; /* keep/change to your brand color */
+    position: relative;
+    z-index: 10;
   }
-
   .logo {
-    height: 50px;
-    margin-left: 0; /* Ensure the logo stays to the left */
+    height: 48px;
+    width: auto;
+    display: block;
   }
-
-  .hamburger {
+  /* Hamburger button */
+  #hamburger {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    background: none;
+    border: 0;
     cursor: pointer;
-    margin-left: auto; /* Align hamburger to the right */
+  }
+  #hamburger span {
+    width: 28px;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
   }
 
-  .hamburger span {
-    width: 30px;
-    height: 4px;
-    background-color: white;
-  }
-
-  /* Navigation Menu (Mobile) */
-  nav {
+  /* Mobile nav: hidden by default, centered when open */
+  #navMenu {
     display: none;
     flex-direction: column;
+    align-items: center;
     gap: 1rem;
-    margin-top: 1rem;
     width: 100%;
     background-color: #004e64;
     padding: 1rem;
-    border-radius: 0 0 0 8px;
   }
-
-  nav a {
+  #navMenu.active { display: flex; }
+  #navMenu a {
     color: #ffffff;
     text-decoration: none;
     padding: 10px 20px;
@@ -1329,185 +1326,139 @@ html, body {
     border-radius: 5px;
     font-weight: 600;
     text-align: center;
+    width: 90%;
+    max-width: 420px;      /* avoids edge-to-edge */
   }
+  #navMenu a:hover,
+  #navMenu a.active { color: #ffa600; }
 
-  nav a:hover,
-  nav a.active {
-    color: #ffa600;
-  }
+  /* Optional: lock page scroll when menu is open */
+  body.no-scroll { height: 100vh; overflow: hidden; }
 
-  /* Hero Section (Mobile Adjustments) */
+  /* Hero (centered, no overflow) */
   .hero-trips {
     position: relative;
-    background: url('../images/rafting27_1024.jpg') center/cover no-repeat;
-    height: 50vh;
+    background: url('images/rafting27_1024.jpg') center/cover no-repeat;
+    min-height: 55vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 2rem 1rem;
     text-align: center;
+    color: #fff;
   }
-
   .hero-trips .overlay {
-    padding: 2rem;
-    color: #ffffff;
+    padding: 1.5rem;
     border-radius: 12px;
-    text-align: center;
+    max-width: 90%;
+    margin-inline: auto;
   }
-
-  .hero-trips h1 {
-    font-size: 2rem;
-  }
-
-  .hero-trips p {
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-  }
-
+  .hero-trips h1 { font-size: 1.9rem; margin: 0 0 .5rem; }
+  .hero-trips p { font-size: 1rem; margin: 0 0 1.25rem; }
   .cta-button {
     background-color: #ffa600;
     color: #003f5c;
-    padding: 0.8rem 1.5rem;
-    text-decoration: none;
-    font-weight: bold;
+    padding: .8rem 1.5rem;
     border-radius: 30px;
-    transition: background-color 0.3s, color 0.3s;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
   }
+  .cta-button:hover { background-color: #003f5c; color: #fff; }
 
-  .cta-button:hover {
-    background-color: #003f5c;
-    color: #ffffff;
-  }
-
-  /* Grid Section (Mobile Adjustments) */
+  /* Grid cards: single column, centered */
   .grid-section {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 2rem;
+    gap: 1.25rem;
+    padding: 1.5rem 1rem;
     justify-items: center;
   }
-
   .grid-item {
-    background-color: #ffffff;
+    background: #fff;
     border-radius: 12px;
     padding: 1rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,.1);
     text-align: center;
     width: 100%;
     max-width: 350px;
   }
-
   .grid-item img {
     width: 100%;
     height: auto;
+    display: block;    /* removes baseline gap */
     border-radius: 8px;
     margin-bottom: 1rem;
   }
+  .grid-item h3 { font-size: 1.25rem; margin: .25rem 0 .5rem; }
+  .grid-item p { font-size: 1rem; color: #555; margin: 0; }
 
-  .grid-item h3 {
-    font-size: 1.3rem;
-  }
-
-  .grid-item p {
-    font-size: 1rem;
-    color: #555;
-  }
-
-  /* Table Section (Mobile Adjustments) */
+  /* Table: contained and centered */
+  .table-container { width: 100%; display: grid; place-items: center; }
   .trips-table {
     width: 100%;
+    max-width: 640px;
     border-collapse: collapse;
     background: #fff;
     border-radius: 8px;
     overflow: hidden;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     text-align: center;
   }
-
-  .trips-table th,
-  .trips-table td {
-    padding: 0.75rem;
-    text-align: center;
+  .trips-table th, .trips-table td {
+    padding: .75rem;
     border-bottom: 1px solid #ddd;
   }
+  .trips-table th { background: #003f5c; color: #fff; }
+  .trips-table tbody tr:hover { background: #f9f9f9; }
 
-  .trips-table th {
-    background-color: #003f5c;
-    color: #ffffff;
-  }
-
-  .trips-table tbody tr:hover {
-    background-color: #f9f9f9;
-  }
-
-  /* Newsletter Section (Mobile Adjustments) */
+  /* Newsletter: card centered, inputs wrap neatly */
   .exclusive-updates {
     background: #fff;
-    padding: 2rem;
-    text-align: left;
+    padding: 1.5rem;
     color: #004e64;
     border-radius: 12px;
     margin: 2rem auto;
     max-width: 600px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,.1);
     display: flex;
     flex-direction: column;
     gap: 1rem;
   }
-
-  .exclusive-updates h2 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .exclusive-updates p {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-  }
-
+  .exclusive-updates h2 { font-size: 1.75rem; margin: 0; }
+  .exclusive-updates p { font-size: 1rem; margin: 0 0 1rem; }
   .exclusive-updates form {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: .5rem;
   }
-
   .exclusive-updates input[type="email"] {
-    padding: 0.75rem;
+    padding: .75rem;
     border: 1px solid #ccc;
     border-radius: 6px;
     flex: 1 1 auto;
     min-width: 200px;
   }
-
   .exclusive-updates button {
-    padding: 0.75rem 1.5rem;
+    padding: .75rem 1.5rem;
     background: #004e64;
     color: #fff;
     border: none;
     border-radius: 6px;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background .3s ease;
   }
+  .exclusive-updates button:hover { background: #007a7a; }
 
-  .exclusive-updates button:hover {
-    background: #007a7a;
-  }
-
-  /* Footer Styling (Mobile Adjustments) */
+  /* Footer: centered, padded */
   footer {
-    background-color: #003f5c;
-    color: white;
+    background: #003f5c;
+    color: #fff;
     text-align: center;
     padding: 1rem;
   }
 
-  /* Mobile Navigation - Toggle */
-  nav.active {
-    display: flex;
-  }
-
-  .hamburger.active + nav {
-    display: flex;
-  }
+  /* Images: universal guard (prevents overflow everywhere) */
+  img { max-width: 100%; height: auto; }
 }
