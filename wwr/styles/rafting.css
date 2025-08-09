@@ -1292,7 +1292,7 @@ html, body {
 
   .logo {
     height: 50px;
-    margin-left: 0; /* Ensures the logo stays to the left */
+    margin-left: 0; /* Ensure the logo stays to the left */
   }
 
   .hamburger {
