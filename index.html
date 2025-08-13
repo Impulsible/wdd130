@@ -1,38 +1,480 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Welcome to my WDD 130 home page. Learn more about me and my journey in web development.">
-    <meta name="author" content="Osuagwu Prince Henry">
-    <title>Osuagwu Prince Henry | WDD 130</title>
-    <link rel="stylesheet" href="styles/styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio splash page for Osuagwu Prince Henry – WDD 130 student in Lagos, Nigeria." />
+  <title>Osuagwu Prince Henry | WDD 130</title>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* =========================
+       Base & Tokens (Mobile-First)
+       ========================= */
+    :root {
+      --bg: #f6f8fb;
+      --surface: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --brand-1: #005f73;
+      --brand-2: #0a9396;
+      --accent: #ffb703;
+      --radius: 14px;
+      --shadow: 0 10px 30px rgba(0,0,0,.07);
+      --ring: 0 0 0 3px rgba(255,183,3,.35);
+    }
+
+    /* Manual theme overrides */
+    html[data-theme="dark"] {
+      --bg: #0b1220;
+      --surface: #0f172a;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --brand-1: #0a9396;
+      --brand-2: #005f73;
+      --accent: #ffd166;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --ring: 0 0 0 3px rgba(255,209,102,.28);
+    }
+
+    /* Fallback to OS preference when no manual theme set */
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme]) {
+        --bg: #0b1220;
+        --surface: #0f172a;
+        --text: #e5e7eb;
+        --muted: #9ca3af;
+        --brand-1: #0a9396;
+        --brand-2: #005f73;
+        --accent: #ffd166;
+        --shadow: 0 10px 30px rgba(0,0,0,.35);
+        --ring: 0 0 0 3px rgba(255,209,102,.28);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container { width: min(1100px, 92%); margin-inline: auto; }
+    .visually-hidden { position: absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip: rect(0 0 0 0); white-space: nowrap; border:0; }
+
+    /* =========================
+       Header / Nav
+       ========================= */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: linear-gradient(115deg, var(--brand-1), var(--brand-2));
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: .9rem 0;
+      gap: .6rem;
+    }
+    .brand { font-weight: 700; letter-spacing: .3px; text-decoration: none; color: #fff; font-size: 1.05rem; }
+
+    .nav-right { display: flex; align-items: center; gap: .6rem; }
+    .nav-links { display: none; gap: 1.1rem; align-items: center; }
+    .nav-link { color: #fff; text-decoration: none; font-weight: 600; position: relative; }
+    .nav-link::after { content: ""; position: absolute; left: 0; bottom: -6px; height: 3px; width: 0; background: var(--accent); border-radius: 6px; transition: width .25s ease; }
+    .nav-link:hover::after, .nav-link[aria-current="page"]::after { width: 100%; }
+
+    .icon-btn, .hamburger {
+      background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.2);
+      border-radius: 999px; display: inline-grid; place-items: center; cursor: pointer; padding: .5rem .75rem;
+    }
+    .icon-btn:focus-visible, .hamburger:focus-visible { outline: none; box-shadow: var(--ring); }
+    .icon-btn { font-weight: 600; }
+
+    .hamburger { border-radius: 10px; display: inline-grid; gap: 4px; padding: .45rem; }
+    .hamburger span { width: 24px; height: 3px; background: #fff; border-radius: 2px; display: block; }
+
+    .mobile-drawer { display: none; position: absolute; right: 4%; left: 4%; top: calc(100% + 8px); background: rgba(255,255,255,.06); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,.18); border-radius: var(--radius); overflow: hidden; }
+    .mobile-drawer a { display: block; padding: .9rem 1rem; color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.12); }
+    .mobile-drawer a:last-child { border-bottom: 0; }
+
+    /* Desktop nav */
+    @media (min-width: 768px) {
+      .hamburger { display: none; }
+      .nav-links { display: flex; }
+      .mobile-drawer { display: none !important; }
+    }
+
+    /* =========================
+       Hero
+       ========================= */
+    .hero {
+      position: relative; color: #fff; text-align: center; isolation: isolate;
+      background: linear-gradient(270deg, var(--brand-2), var(--brand-1), var(--brand-2));
+      background-size: 600% 600%;
+      padding: clamp(3rem, 8vw, 6.5rem) 0; overflow: hidden;
+      box-shadow: var(--shadow);
+      animation: gradientFlow 18s ease infinite;
+    }
+    .hero::before { /* soft texture overlay */
+      content:""; position:absolute; inset:0; background: radial-gradient(80% 60% at 50% 10%, rgba(255,255,255,.18), transparent 60%),
+                                        radial-gradient(60% 40% at 20% 90%, rgba(255,255,255,.12), transparent 55%);
+      mix-blend-mode: overlay; opacity: .6; pointer-events: none;
+    }
+    @keyframes gradientFlow { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+    @media (prefers-reduced-motion: reduce) { .hero { animation: none; } }
+
+    .hero h1 { font-size: clamp(1.6rem, 5vw, 3rem); margin: 0; }
+    .hero p { font-size: clamp(.95rem, 2.4vw, 1.125rem); margin-top: .6rem; opacity: .95; }
+
+    /* =========================
+       Stats strip
+       ========================= */
+    .stats { position: relative; margin-top: -18px; }
+    .stats-inner { background: var(--surface); border-radius: 18px; box-shadow: var(--shadow); padding: 1rem; display: grid; grid-template-columns: repeat(2, 1fr); gap: .8rem; }
+    .stat { text-align: center; padding: .8rem .5rem; border-radius: 12px; background: rgba(0,0,0,.02); }
+    @media (prefers-color-scheme: dark) { .stat { background: rgba(255,255,255,.05); } }
+    .stat-value { font-weight: 700; font-size: clamp(1.4rem, 4vw, 2rem); color: var(--brand-2); line-height: 1; }
+    .stat-label { font-size: .95rem; color: var(--muted); margin-top: .25rem; }
+    @media (min-width: 860px) { .stats-inner { grid-template-columns: repeat(4, 1fr); padding: 1.1rem 1.25rem; } }
+
+    /* =========================
+       Main & Cards
+       ========================= */
+       ========================= */
+    main { padding: 1.5rem 0 2.25rem; }
+    .grid { display: grid; gap: 1.2rem; }
+
+    .card {
+      background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow);
+      padding: 1.2rem; overflow: hidden; transform: translateY(12px); opacity: 0; transition: transform .6s ease, opacity .6s ease;
+    }
+    .card.revealed { transform: none; opacity: 1; }
+    .card h2 { font-size: 1.15rem; margin: 0 0 .4rem; }
+    .card p { color: var(--muted); }
+
+    /* Profile layout */
+    .profile { text-align: center; }
+    .profile img { width: 100%; max-width: 280px; border-radius: 16px; display: block; margin: 0 auto 1rem; box-shadow: var(--shadow); object-fit: cover; }
+    .profile h3 { margin: .25rem 0 .35rem; color: var(--brand-1); font-size: 1.2rem; }
+
+    /* Goals layout niceties */
+    .goals { display: grid; gap: .8rem; }
+    .goals article { background: rgba(0,0,0,.02); padding: .9rem; border-radius: 12px; }
+    @media (prefers-color-scheme: dark) { .goals article { background: rgba(255,255,255,.04); } }
+    .goals h3 { margin: 0 0 .4rem; font-size: 1.05rem; color: var(--brand-2); }
+    .goals ul { margin: 0; padding-left: 0; list-style: none; }
+    .goals li { margin: .35rem 0; display: flex; align-items: center; gap: .6rem; }
+    .goals input[type="checkbox"] { width: 1rem; height: 1rem; accent-color: var(--brand-2); }
+    .goals li.done { opacity: .6; text-decoration: line-through; }
+    .note { margin-top: .6rem; font-size: .95rem; color: var(--muted); }
+
+    /* Make Fun Fact span full width on desktop so it's very visible */
+    #fun-fact { position: relative; margin-top: 1rem; }
+    @media (min-width: 860px) {
+      .grid { grid-template-columns: 1.2fr .8fr; align-items: start; }
+      .profile { position: sticky; top: 88px; }
+      #fun-fact { grid-column: 1 / -3; margin-top: 2rem; }
+    }
+
+    /* =========================
+       Footer
+       ========================= */
+    footer { margin-top: 2rem; background: var(--brand-1); color: #fff; }
+    .footer-inner { padding: 1rem 0; text-align: center; font-size: .95rem; }
+
+    /* =========================
+       Accessibility helpers
+       ========================= */
+    a.skip-link { position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden; }
+    a.skip-link:focus { left: 4%; top: .5rem; width:auto; height:auto; background:#fff; padding:.5rem .75rem; border-radius: .5rem; box-shadow: var(--ring); }
+  </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <header>
-        <nav>
-            <a href="#">Home</a>
-            <a href="wwr/about.html">Rafting Website</a>
-        </nav>
-    </header>
+  <!-- =========================
+       Header / Nav
+       ========================= -->
+  <header>
+    <div class="container nav" role="navigation" aria-label="Primary">
+      <a class="brand" href="index.html">Osuagwu Prince Henry</a>
 
-    <main>
-        <h1>Osuagwu Prince Henry | WDD 130</h1>
-        <img src="Images/Profile.jpg" alt="Hello, my name is Osuagwu Prince Henry" width="200">
-        <p>Welcome to my WDD 130 home page. Learn more about me and my journey in web development.</p>
-        <p>Hello! My name is Osuagwu Prince Henry, and I am from Lagos, Nigeria. I have a background in data analysis and statistics. I enjoy learning about web development and programming, and I am excited about this course!</p>
-    </main>
+      <nav class="nav-links" aria-label="Desktop">
+        <a class="nav-link" href="index.html" aria-current="page">Home</a>
+        <a class="nav-link" href="wwr/index.html">Rafting Website</a>
+      </nav>
 
-    <aside>
-        <h2>Nigeria</h2>
-        <img src="Images/nigeria.png" alt="Nigeria" width="200">
-        <p>Nigeria, located in West Africa, is known for its diverse culture, Nollywood, and rich natural resources.</p>
-    </aside>
+      <div class="nav-right">
+        <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-pressed="false" title="Toggle dark mode">🌙</button>
+        <button class="hamburger" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
 
-    <footer>
-        <p>&copy;2025 🌍 Osuagwu Prince Henry 🌍 Lagos, Nigeria</p>
-    </footer>
+      <div id="mobile-menu" class="mobile-drawer" role="menu" aria-hidden="true">
+        <a class="nav-link" role="menuitem" href="index.html">Home</a>
+        <a class="nav-link" role="menuitem" href="wwr/index.html">Rafting Website</a>
+      </div>
+    </div>
+  </header>
 
+  <!-- =========================
+       Hero
+       ========================= -->
+  <section class="hero">
+    <div class="container">
+      <h1>Osuagwu Prince Henry</h1>
+      <p>WDD 130 Student • Lagos, Nigeria</p>
+    </div>
+  </section>
+
+  <!-- =========================
+       Quick Stats
+       ========================= -->
+  <section class="stats" aria-label="Quick stats">
+    <div class="container stats-inner">
+      <div class="stat">
+        <div class="stat-value" data-target="6">0</div>
+        <div class="stat-label">Mini Projects</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value" data-target="12">0</div>
+        <div class="stat-label">Core Skills</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value" data-target="1">0</div>
+        <div class="stat-label">Year Learning</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value" data-target="3">0</div>
+        <div class="stat-label">Favorite Stacks</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       Main
+       ========================= -->
+  <main id="main" class="container">
+    <div class="grid">
+      <!-- Content cards -->
+      <section class="card" id="interests">
+        <h2>My Interests</h2>
+        <p>I enjoy building human‑centered web experiences and telling clear stories with data. Here are a few areas I’m focused on right now:</p>
+        <ul>
+          <li><strong>Front‑end craft:</strong> semantic HTML, modern CSS (Flexbox/Grid), accessible components, and performance tuning (Core Web Vitals, Lighthouse).</li>
+          <li><strong>JavaScript & tooling:</strong> ES2023+, modular JS, bundlers like Vite, npm scripts, and beginning <em>TypeScript</em>.</li>
+          <li><strong>Data storytelling:</strong> turning datasets into interactive visuals—charts, maps, and small multiples—experimenting with SVG/Canvas and D3.js.</li>
+          <li><strong>Design systems:</strong> design tokens, consistent spacing/type scale, and color contrast that meets WCAG 2.2 AA.</li>
+          <li><strong>Photography & Lagos life:</strong> capturing markets and street scenes and weaving them into UI narratives.</li>
+        </ul>
+        <p><em>Currently learning:</em> Git branching strategies, API basics (REST/fetch), and responsive images (<code>srcset</code> & <code>sizes</code>).</p>
+      </section>
+
+      <aside class="card profile" aria-label="Profile">
+        <img src="Images/Profile.jpg" alt="Portrait of Osuagwu Prince Henry"/>
+        <h3>Osuagwu Prince Henry</h3>
+        <p>Hello! I'm from Lagos, Nigeria, with a background in data analysis and statistics. I’m excited about web development and programming and how both can create impact.</p>
+      </aside>
+
+      <section class="card" id="goals">
+        <h2>Goals</h2>
+        <p>My long‑term aim is to become a full‑stack developer who ships accessible, fast, and beautiful products that make real impact.</p>
+        <div class="goals">
+          <article>
+            <h3>Short‑term (0–3 months)</h3>
+            <ul>
+              <li><label><input type="checkbox" data-goal-id="s1"> Finish WDD 130 strongly and document key learnings.</label></li>
+              <li><label><input type="checkbox" data-goal-id="s2"> Build 3 mini‑projects: a responsive landing page, an interactive gallery, and a small API‑powered widget.</label></li>
+              <li><label><input type="checkbox" data-goal-id="s3"> Set up a polished portfolio + GitHub Pages, including README templates and live demos.</label></li>
+            </ul>
+          </article>
+          <article>
+            <h3>Mid‑term (3–9 months)</h3>
+            <ul>
+              <li><label><input type="checkbox" data-goal-id="m1"> Learn React fundamentals and TypeScript basics; refactor one project with them.</label></li>
+              <li><label><input type="checkbox" data-goal-id="m2"> Ship a full‑stack app (Node/Express or Firebase) with auth and CRUD.</label></li>
+              <li><label><input type="checkbox" data-goal-id="m3"> Meet an a11y checklist (keyboard, focus, color contrast) on two projects.</label></li>
+              <li><label><input type="checkbox" data-goal-id="m4"> Contribute 2 useful PRs to open‑source docs or components.</label></li>
+            </ul>
+          </article>
+          <article>
+            <h3>Long‑term (9–18 months)</h3>
+            <ul>
+              <li><label><input type="checkbox" data-goal-id="l1"> Land an internship/entry role and keep a learning log.</label></li>
+              <li><label><input type="checkbox" data-goal-id="l2"> Create a data‑driven storytelling piece about Lagos markets.</label></li>
+              <li><label><input type="checkbox" data-goal-id="l3"> Maintain 90+ Lighthouse scores (Performance, A11y, Best Practices, SEO) on key projects.</label></li>
+              <li><label><input type="checkbox" data-goal-id="l4"> Mentor a beginner through their first website.</label></li>
+            </ul>
+          </article>
+        </div>
+        <p class="note">Your progress is saved on this device. Clearing your browser storage will reset the checkmarks.</p>
+      </section>
+
+      <section class="card" id="fun-fact" aria-live="polite">
+        <h2>Fun Fact</h2>
+        <p>I once analyzed over 1,000,000 data points for a project and still finished a whole TV series the same week. Balance! 😄</p>
+      </section>
+    </div>
+  </main>
+
+  <!-- =========================
+       Footer
+       ========================= -->
+  <footer>
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> 🌍 Osuagwu Prince Henry — Lagos, Nigeria</p>
+    </div>
+  </footer>
+
+  <script>
+    // =========================
+    // Small helpers
+    // =========================
+    const qs = (sel, ctx=document) => ctx.querySelector(sel);
+    const qsa = (sel, ctx=document) => Array.from(ctx.querySelectorAll(sel));
+
+    // =========================
+    // Theme: dark/light toggle with localStorage
+    // =========================
+    const THEME_KEY = 'themePreference'; // 'light' | 'dark' | null (auto)
+    const root = document.documentElement;
+    const btnTheme = qs('#themeToggle');
+
+    function applyTheme(pref) {
+      if (!pref) { root.removeAttribute('data-theme'); btnTheme.textContent = window.matchMedia('(prefers-color-scheme: dark)').matches ? '🌙' : '☀️'; return; }
+      root.setAttribute('data-theme', pref);
+      btnTheme.textContent = pref === 'dark' ? '🌙' : '☀️';
+    }
+
+    function loadTheme() { return localStorage.getItem(THEME_KEY); }
+    function saveTheme(pref) { pref ? localStorage.setItem(THEME_KEY, pref) : localStorage.removeItem(THEME_KEY); }
+
+    // Initialize theme on load
+    applyTheme(loadTheme());
+    // Update icon if OS theme changes while in auto
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { if (!loadTheme()) applyTheme(null); });
+
+    // Click cycles: auto -> dark -> light -> auto ...
+    btnTheme.addEventListener('click', () => {
+      const current = loadTheme();
+      const next = current === null ? 'dark' : current === 'dark' ? 'light' : null;
+      saveTheme(next);
+      applyTheme(next);
+      btnTheme.setAttribute('aria-pressed', next === 'dark');
+      btnTheme.title = next === 'dark' ? 'Dark mode on (click to change)' : next === 'light' ? 'Light mode on (click to change)' : 'Auto mode (click to change)';
+    });
+
+    // =========================
+    // Mobile menu
+    // =========================
+    const btn = qs('.hamburger');
+    const drawer = qs('#mobile-menu');
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      drawer.style.display = expanded ? 'none' : 'block';
+      drawer.setAttribute('aria-hidden', String(expanded));
+    });
+
+    // Close drawer on outside click / escape
+    document.addEventListener('click', (e) => {
+      if (!drawer.contains(e.target) && !btn.contains(e.target)) {
+        drawer.style.display = 'none';
+        btn.setAttribute('aria-expanded', 'false');
+        drawer.setAttribute('aria-hidden', 'true');
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        drawer.style.display = 'none';
+        btn.setAttribute('aria-expanded', 'false');
+        drawer.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    // =========================
+    // Active link highlighting
+    // =========================
+    const path = location.pathname.replace(/\/$/, '/index.html');
+    qsa('a.nav-link').forEach(a => {
+      const href = a.getAttribute('href');
+      if (path.endsWith(href)) a.setAttribute('aria-current', 'page');
+    });
+
+    // =========================
+    // Reveal on scroll (IntersectionObserver)
+    // =========================
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      })
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+
+    qsa('.card').forEach(el => observer.observe(el));
+
+    // Animate stats when visible
+    const statsSection = qs('.stats-inner');
+    const animateCounter = (el) => {
+      const target = Number(el.dataset.target || 0);
+      const start = 0;
+      const duration = 1000;
+      const startTime = performance.now();
+      const step = (now) => {
+        const p = Math.min((now - startTime) / duration, 1);
+        el.textContent = Math.floor(start + p * (target - start));
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+
+    const statObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          qsa('.stat-value', statsSection).forEach(animateCounter);
+          statObserver.unobserve(statsSection);
+        }
+      })
+    }, { threshold: 0.3 });
+
+    statObserver.observe(statsSection);
+
+    // =========================
+    // Goals: persistent checkboxes (localStorage)
+    // =========================
+    const GOALS_KEY = 'goals:v1';
+    const loadGoals = () => JSON.parse(localStorage.getItem(GOALS_KEY) || '{}');
+    const saveGoals = (obj) => localStorage.setItem(GOALS_KEY, JSON.stringify(obj));
+
+    const state = loadGoals();
+    qsa('input[data-goal-id]').forEach(cb => {
+      const id = cb.dataset.goalId;
+      const li = cb.closest('li');
+      if (state[id]) { cb.checked = true; li.classList.add('done'); }
+      cb.addEventListener('change', () => {
+        state[id] = cb.checked;
+        cb.checked ? li.classList.add('done') : li.classList.remove('done');
+        saveGoals(state);
+      });
+    });
+
+    // =========================
+    // Year
+    // =========================
+    qs('#year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
